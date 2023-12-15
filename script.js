@@ -1,7 +1,7 @@
 function createBlock() {
   const block = document.createElement("div");
   block.classList.add("block");
-  block.style.height = prompt("Enter block height (in pixels):") + "px";
+  block.style.height = prompt("Enter block height (in pixels):") + "0px";
   document.getElementById("blocks").appendChild(block);
 }
 
@@ -9,7 +9,7 @@ function createBlock() {
 function calculateWater() {
   const blocks = document.querySelectorAll(".block");
   const heights = Array.from(blocks).map(
-    (block) => parseInt(block.style.height, 10) || 0
+    (block) => parseInt(block.style.height) || 0
   );
 
   let waterTrapped = 0;
@@ -53,7 +53,7 @@ function calculateWater() {
 
   document.getElementById(
     "result"
-  ).innerText = `Water trapped: ${waterTrapped} units`;
+  ).innerText = `Water trapped: ${waterTrapped/10} units`;
 }
 
 // Create individual blocks based on user input
